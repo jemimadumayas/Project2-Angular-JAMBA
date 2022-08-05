@@ -27,14 +27,15 @@ export class getService {
   getAllMovies():Observable<Movie>{
     return this.http.get<Movie>(this.baseurl+"/all-movies")
   }
+  
   getCustomer(username:string):Observable<Customer>{
     return this.http.get<Customer>(this.baseurl+"/username/"+username)
   }
 
   getCustomersCart(customer:Customer):Observable<Cart>{
-    
     return this.http.put<Cart>(this.baseurl+"/cart", customer)
   }
+
 
 
 }
