@@ -1,0 +1,22 @@
+import { Component, OnInit } from '@angular/core';
+import { Movie } from '../objects/Movie';
+import { MovieGetService } from '../movie-get.service';
+import { ActivatedRoute } from '@angular/router';
+
+@Component({
+  selector: 'app-movie-page',
+  templateUrl: './movie-page.component.html',
+  styleUrls: ['./movie-page.component.scss']
+})
+export class MoviePageComponent implements OnInit {
+movie:Movie | any;
+name: string | any;
+
+  constructor(private _movieGetService:MovieGetService, private route:ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.name = this.route.snapshot.paramMap.get('name');
+    this._movieGetService.getSingleMovie(this.name).subscribe(data=>{ this.movie = data})
+  }
+
+}
