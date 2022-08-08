@@ -1,4 +1,6 @@
-{{checkout}}
-Date is {{checkoutDate}} <br/>
-
+<h4>Thank you for shopping with JAMBA</h4>
+<ul>
+    <li *ngFor="let c of cart.transactions">{{c.movie.title}} &nbsp; {{c.movie.price | currency}}</li>
+    <li>and your total is: {{cart.totalPrice}}</li>
+</ul>
 
