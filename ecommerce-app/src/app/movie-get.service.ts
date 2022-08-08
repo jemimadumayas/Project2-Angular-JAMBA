@@ -32,9 +32,7 @@ export class getService {
   }
 
   getCustomersCart(customer:Customer):Observable<Cart>{
-    
     return this.http.put<Cart>(this.baseurl+"/cart", customer)
   }
-
 
 }

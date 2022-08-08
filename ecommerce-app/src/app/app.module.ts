@@ -8,7 +8,9 @@ import { MoviePageComponent } from './movie-page/movie-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { LoginPageComponent } from './login-page/login-page.component';
-
+import { SignupPageComponent } from './signup-page/signup-page.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,15 @@ import { LoginPageComponent } from './login-page/login-page.component';
     MoviePageComponent,
     UserProfileComponent,
     MovieListComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    SignupPageComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

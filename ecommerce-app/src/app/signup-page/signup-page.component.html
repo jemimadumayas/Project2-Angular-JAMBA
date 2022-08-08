@@ -1,0 +1,42 @@
+<div class="container">
+    <br>
+    <h1>SIGN UP</h1>
+    <br>
+    <form #registerform="ngForm" (ngSubmit)="registerCustomer()">
+        <small class = "text-danger"> {{msg}} </small>
+        <div class="form-group">
+            <input type="email" class="form-control" placeholder="Enter Email" name="email" [(ngModel)]="customer.email"
+                required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" #email="ngModel"
+                [class.is.invalid]="email.invalid && email.touched">
+            <div *ngIf="email.errors && (email.invalid && email.touched)">
+                <small class="text-danger" *ngIf="email.errors?.['required']">email required</small>
+                <small class="text-danger" *ngIf="email.errors?.['pattern']">enter valid email</small>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Username" name="username"
+                [(ngModel)]="customer.username" required #username="ngModel"
+                [class.is.invalid]="username.invalid && username.touched">
+            <small class="text-danger" [class.d-none]="username.valid || username.untouched">username required</small>
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Enter Password" name="password"
+                [(ngModel)]="customer.password" required #password="ngModel"
+                [class.is.invalid]="password.invalid && password.touched">
+            <small class="text-danger" [class.d-none]="password.valid || password.untouched">password required</small>
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Confirm Password" name="cpassword"
+                (ngModel)="customer.password" required #cpassword="ngModel"
+                [class.is.invalid]="cpassword.invalid && cpassword.touched">
+            <small class="text-danger" [class.d-none]="cpassword.value == password.value || cpassword.untouched">password must match</small>
+        </div>
+        <br>
+        <button [disabled]="registerform.form.invalid" type="submit" class="btn btn-primary">SIGN UP</button>
+    </form>
+    <br>
+    <small class="float-right btextual" [routerLink]="['/login']">Existing User? Login Here</small>
+</div>
