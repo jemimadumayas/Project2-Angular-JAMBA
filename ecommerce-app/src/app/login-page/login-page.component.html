@@ -1,1 +1,29 @@
-<p>login-page works!</p>
+<div class="container">
+    <br>
+    <h1>SIGN IN</h1>
+    <br>
+    <form #loginform="ngForm" (ngSubmit)="loginCustomer()">
+      <small class="text-danger"> {{msg}} </small>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter Username" name="username"
+            [(ngModel)]="customer.username" required #username ="ngModel"
+            [class.is.invalid] = "username.invalid && username.touched">
+            <small class="text-danger" [class.d-none]="username.valid || username.untouched">username required</small>
+    </div>
+    
+    <br>
+    <div class="form-group">
+        <input type="password" class="form-control" placeholder="Enter Password" name="password"
+            [(ngModel)]="customer.password" required #password ="ngModel"
+            [class.is.invalid] = "password.invalid && password.touched">
+            <small class="text-danger" [class.d-none]="password.valid || password.untouched">password required</small>
+    </div>
+      <div class="checkbox">
+        <label><input type="checkbox" name="remember"> Remember me</label>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-primary">SIGN IN</button>
+    </form>
+    <br>
+    <small class="float-right btextual" [routerLink]="['/signin']">New Customer? Register Here</small>
+  </div>
