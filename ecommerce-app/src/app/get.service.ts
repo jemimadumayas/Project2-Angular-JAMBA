@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Movie } from './objects/Movie';
 import { Customer } from './objects/Customer';
 import { Cart } from './objects/Cart';
+import { Checkout } from './Checkout';
 
 
 @Injectable({
@@ -21,11 +22,11 @@ export class getService {
     
   }
   getSingleMovie(title:string):Observable<Movie>{
-    return this.http.get<Movie>(this.baseurl+"/"+title)
+    return this.http.get<Movie>(this.baseurl+"/movie/"+title)
   }
 
   getAllMovies():Observable<Movie>{
-    return this.http.get<Movie>(this.baseurl+"/all-movies")
+    return this.http.get<Movie>(this.baseurl+"/movie/all-movies")
   }
   
   getCustomer(username:string):Observable<Customer>{
@@ -34,6 +35,10 @@ export class getService {
 
   getCustomersCart(customer:Customer):Observable<Cart>{
     return this.http.put<Cart>(this.baseurl+"/cart", customer)
+  }
+
+  addItemToCart(customer:Customer,title:string):Observable<Cart>{
+    return this.http.put<Cart>(this.baseurl+"/movie/"+title+"/addtocart", customer)
   }
 
 
