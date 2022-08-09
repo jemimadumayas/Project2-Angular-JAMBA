@@ -4,13 +4,12 @@ import { Observable } from 'rxjs';
 import { Movie } from './objects/Movie';
 import { Customer } from './objects/Customer';
 import { Cart } from './objects/Cart';
-import { Checkout } from './Checkout';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class getService {
+export class GetService {
   baseurl = "http://localhost:8080/jamba";
 
   constructor(private http:HttpClient) { }
@@ -33,12 +32,11 @@ export class getService {
     return this.http.get<Customer>(this.baseurl+"/username/"+username)
   }
 
-  getCustomersCart(customer:Customer):Observable<Cart>{
-    return this.http.put<Cart>(this.baseurl+"/cart", customer)
-  }
-
   addItemToCart(customer:Customer,title:string):Observable<Cart>{
-    return this.http.put<Cart>(this.baseurl+"/movie/"+title+"/addtocart", customer)
+    return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/addtocart", customer)
   }
 
+  removeItemFromCart(customer:Customer,title:string):Observable<Cart>{
+    return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/removefromcart", customer)
+  }
 }

@@ -1,1 +1,17 @@
-<p>cart works!</p>
+
+<div class="container">
+    <div *ngFor="let c of cart.transactions" class="row p-2 bg-white border rounded">
+        <div class="col-3">
+        <img src="{{c.movie.movieCoverLink}}" alt="movie cover for {{c.movie.title}}">
+        </div>
+        <div class="col-6">
+        <p>{{c.movie.title}}</p>
+        <p>{{c.movie.description}}</p>
+        </div>
+        <div class="col-3">
+        <p style="float:left">{{c.movie.price | currency}}</p>
+        <button (click)="decreaseQuantity(customer, c.movie.title)">-</button>{{c.quantity}}<button (click)="increaseQuantity(customer, c.movie.title)">+</button>
+        </div>
+    </div>
+    </div>
+    <button routerLink="/checkout">Checkout</button>

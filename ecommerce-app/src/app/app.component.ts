@@ -8,13 +8,14 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class AppComponent {
-<<<<<<< HEAD
+
+
   title = "ecommerce-app"
-=======
+
   title(title: any) {
     throw new Error('Method not implemented.');
   }
->>>>>>> 89ee558193e0f52663906d20172ce1bcd5315d1c
+  
   constructor(private modalService: NgbModal) {
   }
   public open(modal: any): void {

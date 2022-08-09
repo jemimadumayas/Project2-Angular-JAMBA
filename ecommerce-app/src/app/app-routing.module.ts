@@ -15,11 +15,8 @@ const routes: Routes = [
   {path:'my-profile', component:UserProfileComponent},
   {path:'all-movies', component:MovieListComponent},
   {path:'login', component:LoginPageComponent},
-<<<<<<< HEAD
-  {path:'signin', component:SignupPageComponent}
-=======
   {path:'checkout', component:CheckoutPageComponent}
->>>>>>> 89ee558193e0f52663906d20172ce1bcd5315d1c
+  {path:'signin', component:SignupPageComponent}
 
 ];
 

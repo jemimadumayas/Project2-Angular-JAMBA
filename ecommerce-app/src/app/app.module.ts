@@ -9,8 +9,10 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { SignupPageComponent } from './signup-page/signup-page.component';
+
 import { FormsModule } from '@angular/forms';
+import { SignupPageComponent } from './signup-page/signup-page.component';
+
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -21,8 +23,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     UserProfileComponent,
     MovieListComponent,
     LoginPageComponent,
+    CheckoutPageComponent,
     SignupPageComponent,
-    CheckoutPageComponent
+
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
