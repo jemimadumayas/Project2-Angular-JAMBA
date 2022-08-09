@@ -23,6 +23,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     LoginPageComponent,
     CheckoutPageComponent,
     SignupPageComponent,
+
   ],
   imports: [
     BrowserModule,

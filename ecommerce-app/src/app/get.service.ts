@@ -42,6 +42,4 @@ export class GetService {
   removeItemFromCart(customer:Customer,title:string):Observable<Cart>{
     return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/removefromcart", customer)
   }
-
-
 }
