@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Checkout } from '../Checkout';
 import { CheckoutService } from '../checkout.service';
-import { getService } from '../movie-get.service';
+import { Cart } from '../objects/Cart';
 import { Movie } from '../objects/Movie';
 
 @Component({
@@ -10,13 +9,14 @@ import { Movie } from '../objects/Movie';
   styleUrls: ['./checkout-page.component.scss']
 })
 export class CheckoutPageComponent implements OnInit {
-checkout:string='Checkout';
-checkoutDate=new Date();
+
+cart:Cart | any;
 
 
-  constructor() {}
+  constructor(private _checkoutService:CheckoutService) {}
     
   ngOnInit(): void {
+    // this.cart = this._checkoutService.checkoutCustomer(this._checkoutService.getCustomersCart(customerPlaceholder));
   }
 
 }

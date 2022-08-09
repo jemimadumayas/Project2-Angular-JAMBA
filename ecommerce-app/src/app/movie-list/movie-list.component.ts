@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { getService } from '../get.service';
+import { GetService } from '../Get.service';
 import { Movie } from '../objects/Movie';
 
 @Component({
@@ -10,12 +10,12 @@ import { Movie } from '../objects/Movie';
 })
 export class MovieListComponent implements OnInit {
 
-  constructor(private _getService:getService, private route:ActivatedRoute) { }
+  constructor(private _GetService:GetService, private route:ActivatedRoute) { }
   movies:Movie[] | any;
   name:string | any;
 
   ngOnInit(): void {
-    this._getService.getAllMovies().subscribe(data=>{ this.movies = data})
+    this._GetService.getAllMovies().subscribe(data=>{ this.movies = data})
   }
 
   addToCart(title:string): void {
