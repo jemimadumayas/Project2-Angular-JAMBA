@@ -32,6 +32,9 @@ export class GetService {
     return this.http.get<Customer>(this.baseurl+"/username/"+username)
   }
 
+  getCustomersCart(customer:Customer):Observable<Cart>{
+    return this.http.put<Cart>(this.baseurl+"/cart", customer)
+  }
   addItemToCart(customer:Customer,title:string):Observable<Cart>{
     return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/addtocart", customer)
   }
