@@ -12,9 +12,6 @@ export class AppComponent {
 
   title = "ecommerce-app"
 
-  title(title: any) {
-    throw new Error('Method not implemented.');
-  }
   
   constructor(private modalService: NgbModal) {
   }

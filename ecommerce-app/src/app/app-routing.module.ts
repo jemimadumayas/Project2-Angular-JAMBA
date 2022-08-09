@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:'my-profile', component:UserProfileComponent},
   {path:'all-movies', component:MovieListComponent},
   {path:'login', component:LoginPageComponent},
-  {path:'checkout', component:CheckoutPageComponent}
+  {path:'checkout', component:CheckoutPageComponent},
   {path:'signin', component:SignupPageComponent}
 
 ];
