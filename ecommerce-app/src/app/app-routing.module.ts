@@ -1,18 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MoviePageComponent } from './movie-page/movie-page.component';
+import { UserInformationComponent } from './user-information/user-information.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {path:'movie/:title', component:MoviePageComponent},
   {path:'cart', component:CartComponent},
-  {path:'my-profile', component:UserProfileComponent},
+  {path:'my-profile', component:UserProfileComponent,
+    children:[{path:'view', component:UserInformationComponent},
+    {path:'edit',component:EditUserComponent},
+    {path:'',redirectTo:'view',pathMatch:'full'}]},
   {path:'all-movies', component:MovieListComponent},
   {path:'login', component:LoginPageComponent},
-
+  
 ];
 
 @NgModule({

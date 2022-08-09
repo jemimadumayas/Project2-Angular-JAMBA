@@ -1,0 +1,24 @@
+<div class="container">
+    <h4>Edit Profile</h4>
+    <form #editProfileForm="ngForm" (ngSubmit)="onSubmit(editProfileForm)">
+        <input type="hidden" name="customerId" [(ngModel)]="updatedCustomer.id"/>
+        <label for="username">Username: </label>&nbsp;&nbsp;
+        <input type="text" name="username" [(ngModel)]="updatedCustomer.username"/><br/>
+        <label for="password">Password: </label>&nbsp;&nbsp;
+        <input type="password" name="password" [(ngModel)]="updatedCustomer.password"/><br/>
+        <label for="email">Email: </label>&nbsp;&nbsp;
+        <input type="text" name="email" [(ngModel)]="updatedCustomer.email"/><br/>
+        <label for="firstName">First Name: </label>&nbsp;&nbsp;
+        <input type="text" name="firstName" [(ngModel)]="updatedCustomer.firstName"/><br/>
+        <label for="lastName">Last Name: </label>&nbsp;&nbsp;
+        <input type="text" name="lastName" [(ngModel)]="updatedCustomer.lastName"/> <br/>
+        <label for="accountBalance">Account Balance: </label>&nbsp;&nbsp;
+        <input type="number" name="accountBalance" [(ngModel)]="updatedCustomer.accountBalance"/> <br/>
+        <label for="phoneNumber">Phone Number: </label>&nbsp;&nbsp;
+        <input type="text" name="phoneNumber" [(ngModel)]="updatedCustomer.phoneNumber"/> <br/>
+        <label for="address">Address: </label>&nbsp;&nbsp;
+        <input type="text" name="address" [(ngModel)]="updatedCustomer.address"/> <br/>
+
+        <input type="submit" name="Confirm"/>
+    </form>
+</div>

@@ -1,5 +1,5 @@
 export interface Customer{
-    customerId:number;
+    id:number;
     username:string;
     password:string;
     email:string;

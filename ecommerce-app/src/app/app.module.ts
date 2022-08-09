@@ -8,6 +8,10 @@ import { MoviePageComponent } from './movie-page/movie-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UserInformationComponent } from './user-information/user-information.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,12 +21,17 @@ import { LoginPageComponent } from './login-page/login-page.component';
     MoviePageComponent,
     UserProfileComponent,
     MovieListComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    UserInformationComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

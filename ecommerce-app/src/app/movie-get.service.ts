@@ -29,7 +29,11 @@ export class getService {
   }
   
   getCustomer(username:string):Observable<Customer>{
-    return this.http.get<Customer>(this.baseurl+"/username/"+username)
+    return this.http.get<Customer>(this.baseurl+"/customer/username/"+username)
+  }
+
+  updateCustomer(customer:Customer):Observable<Customer>{
+    return this.http.put<Customer>(this.baseurl+"/customer/"+customer.id, customer)
   }
 
   getCustomersCart(customer:Customer):Observable<Cart>{
