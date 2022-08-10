@@ -1,20 +1,22 @@
-<p>movie-page works!</p>
-
+<div class="d-flex align-items-center">
+        <div class="flex-shrink-0">
 <img src="{{movie.movieCoverLink}}" alt="movie cover for {{movie.title}}">
-
-
-
-<!-- <div class="col-3">
-    <img src="{{movie.movieCoverLink}}" alt="movie cover for {{movie.title}}">
+</div>
+<div class="flex-grow-1 ms-3">
+    <div>
+        <p>{{movie.title}}  ({{movie.releaseYear}}) &nbsp; <i class="fa fa-star">{{movie.rating | number:'1.1'}}</i></p>
+        <p>{{movie.genre}}</p>
     </div>
-    <div class="col-6">
-    <p>{{movie.title}}  ({{movie.releaseYear}}) &nbsp; <i class="fa fa-star">{{movie.rating | number:'1.1'}}</i></p>
-    <p>{{movie.description}}</p>
+    <div>
+        <p>{{movie.description}}</p>
+        <p style="float:left">{{movie.price | currency}}</p> <br>
+        <button (click)="addToCart(movie.title)">Add To Cart</button>
     </div>
-    <div class="col-3">
-    <p style="float:left">{{movie.price | currency}}</p>
-    <button (click)="addToCart(movie.title)">Add To Cart</button>
-    </div> 
+</div>
+</div>
+
+
+<!-- 
 Movie{
     title: string,
     description: string,

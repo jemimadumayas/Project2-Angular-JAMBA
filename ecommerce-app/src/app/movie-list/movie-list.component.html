@@ -2,10 +2,10 @@
 <div class="container">
 <div *ngFor="let movie of movies" class="row p-2 bg-white border rounded">
     <div class="col-3">
-    <img src="{{movie.movieCoverLink}}" alt="movie cover for {{movie.title}}">
+    <img src="{{movie.movieCoverLink}}" alt="movie cover for {{movie.title}}" routerLink="../movie/{{movie.title}}">
     </div>
     <div class="col-6">
-    <p>{{movie.title}}  ({{movie.releaseYear}}) &nbsp; <i class="fa fa-star">{{movie.rating | number:'1.1'}}</i></p>
+    <a routerLink="../movie/{{movie.title}}">{{movie.title}} </a> <p> ({{movie.releaseYear}}) &nbsp; <i class="fa fa-star">{{movie.rating | number:'1.1'}}</i></p>
     <p>{{movie.description}}</p>
     </div>
     <div class="col-3">
