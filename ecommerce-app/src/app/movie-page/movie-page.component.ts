@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from '../objects/Movie';
-import { getService } from '../movie-get.service';
+import { GetService } from '../Get.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,11 +12,15 @@ export class MoviePageComponent implements OnInit {
 movie:Movie | any;
 name: string | any;
 
-  constructor(private _movieGetService:getService, private route:ActivatedRoute) { }
+  constructor(private _GetService:GetService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.name = this.route.snapshot.paramMap.get('name');
-    this._movieGetService.getSingleMovie(this.name).subscribe(data=>{ this.movie = data})
+    this.route.params.subscribe(params =>{
+      this.name=params['title'];
+    });
+    this._GetService.getSingleMovie(this.name).subscribe(data=>{ this.movie = data})
+
+
   }
 
 }
