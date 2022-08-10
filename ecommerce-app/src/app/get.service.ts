@@ -11,7 +11,8 @@ import { Cart } from './objects/Cart';
 })
 export class GetService {
   baseurl = "http://localhost:8080/jamba";
-
+  customer:Customer | any;
+  
   constructor(private http:HttpClient) { }
 
   httpOptions={
@@ -32,11 +33,15 @@ export class GetService {
     return this.http.get<Customer>(this.baseurl+"/username/"+username)
   }
 
-  addItemToCart(customer:Customer,title:string):Observable<Cart>{
-    return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/addtocart", customer)
+  addItemToCart(title:string):Observable<Cart>{
+    let jsonObj=JSON.parse(sessionStorage.getItem("currentUser")!);
+    this.customer=jsonObj as Customer;
+    return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/addtocart", this.customer)
   }
 
-  removeItemFromCart(customer:Customer,title:string):Observable<Cart>{
-    return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/removefromcart", customer)
+  removeItemFromCart(title:string):Observable<Cart>{
+    let jsonObj=JSON.parse(sessionStorage.getItem("currentUser")!);
+    this.customer=jsonObj as Customer;
+    return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/removefromcart", this.customer)
   }
 }
