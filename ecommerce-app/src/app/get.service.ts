@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders, HttpRequest } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Movie } from './objects/Movie';
 import { Customer } from './objects/Customer';
@@ -43,5 +43,9 @@ export class GetService {
     let jsonObj=JSON.parse(sessionStorage.getItem("currentUser")!);
     this.customer=jsonObj as Customer;
     return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/removefromcart", this.customer)
+  }
+
+  updateCart(cart:Cart):Observable<Cart>{
+    return this.http.post<Cart>(this.baseurl+"/updateCart", cart)
   }
 }
