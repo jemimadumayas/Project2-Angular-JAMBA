@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Movie } from '../objects/Movie';
 import { GetService } from '../Get.service';
 import { ActivatedRoute } from '@angular/router';
+import { Customer } from '../objects/Customer';
 
 @Component({
   selector: 'app-movie-page',
@@ -22,5 +23,11 @@ name: string | any;
 
 
   }
+
+  addToCart(title:string/* ,customer:Customer */): void {
+    this.name=title;
+/*     this._getService.addItemToCart(customer, this.name) */
+  console.log("added to cart "+this.name);
+}
 
 }
