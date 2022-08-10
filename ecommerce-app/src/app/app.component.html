@@ -1,37 +1,38 @@
+<div>
+<nav class="navbar navbar-expand-sm py-4" style="background-color: #0b5394">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<nav class="navbar navbar-expand-sm navbar-light py-4" style="background-color: #0b5394">
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="#">
-        <img src=
-    "https://media.geeksforgeeks.org/wp-content/uploads/20200921155935/gfglogo-300x39.png"
-            width="300" height="50" alt="" />
-    </a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <!-- <li class="nav-item">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="border-color: white;">
+      <ul class="navbar-nav">
+        <!-- <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#"><i class="fa fa-search"></i></a>
           </li> -->
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="all-movies"><i class="fa fa-home"></i></a>
-          </li>
-  
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="my-profile"><i class="fa fa-user"></i></a>
-          </li>
-  
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="cart"><i class="fa fa-shopping-bag"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="login"><i class="fa fa-sign-in"></i></a>
-          </li>
-        </ul> 
-      </div>
+          <br>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="all-movies"><button class="btn btn-#0b5394" style="color: white"><i class="fa fa-home"> Home</i></button></a>
+        </li>
+        <br>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="my-profile"><button class="btn btn-#0b5394" style="color: white"><i class="fa fa-user"> Account</i></button></a>
+        </li>
+        <br>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="cart"><button class="btn btn-#0b5394" style="color: white"><i class="fa fa-shopping-bag"> Cart</i></button></a>
+        </li>
+        <br>
+        <li class="nav-item" *ngIf="userIsLogedIn()" >
+          <a class="nav-link active" aria-current="page" routerLink="all-movies"><button class="btn btn-#0b5394" (click)="logout()" style="color: white"><i class="fa fa-sign-in"> Logout</i></button></a>
+        </li>
+        <li class="nav-item" *ngIf="!userIsLogedIn()" >
+          <a class="nav-link active" aria-current="page" routerLink="login"><button class="btn btn-#0b5394" style="color: white"><i class="fa fa-sign-in"> Login</i></button></a>
+        </li>
+      </ul>
     </div>
-  </nav>
-
-  <router-outlet></router-outlet>
+  </div>
+</nav>
+</div>
+<router-outlet></router-outlet>
