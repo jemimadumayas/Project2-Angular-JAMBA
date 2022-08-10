@@ -1,17 +1,97 @@
+<section class="h-100">
+    <div class="container h-100 py-5">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-10">
+            <h1>Shopping Cart</h1> <br>
+          <div class="card rounded-3 mb-4">
+            <div class="card-body p-4">
+              <div class="row d-flex justify-content-between align-items-center">
+                <div class="col-md-2 col-lg-2 col-xl-2">
+                  <img
+                    src=""
+                    class="img-fluid rounded-3" alt="Little Mermaid">
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3">
+                  <p class="lead fw-normal mb-2">Little Mermaid</p>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                  <button class="btn btn-link px-2"
+                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                    <i class="fa fa-minus"></i>
+                  </button>
+  
+                  <input id="form1" min="0" name="quantity" value="2" type="number"
+                    class="form-control form-control-sm" />
+  
+                  <button class="btn btn-link px-2"
+                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                  <h5 class="mb-0">$9.00</h5>
+                </div>
+                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                  <a href="#!" class="text-danger"><i class="fa fa-trash fa-lg"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<div class="container">
-    <div *ngFor="let c of cart.transactions" class="row p-2 bg-white border rounded">
-        <div class="col-3">
-        <img src="{{c.movie.movieCoverLink}}" alt="movie cover for {{c.movie.title}}">
+          <div class="card rounded-3 mb-4">
+            <div class="card-body p-4">
+              <div class="row d-flex justify-content-between align-items-center">
+                <div class="col-md-2 col-lg-2 col-xl-2">
+                  <img
+                    src=""
+                    class="img-fluid rounded-3" alt="Little Mermaid">
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3">
+                  <p class="lead fw-normal mb-2">Little Mermaid</p>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                  <button class="btn btn-link px-2"
+                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                    <i class="fa fa-minus"></i>
+                  </button>
+  
+                  <input id="form1" min="0" name="quantity" value="2" type="number"
+                    class="form-control form-control-sm" />
+  
+                  <button class="btn btn-link px-2"
+                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                    <i class="fa fa-plus"></i>
+                  </button>
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                  <h5 class="mb-0">$9.00</h5>
+                </div>
+                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                  <a href="#!" class="text-danger"><i class="fa fa-trash fa-lg"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- <div class="card mb-4">
+            <div class="card-body p-4 d-flex flex-row">
+              <div class="form-outline flex-fill">
+                <input type="text" id="form1" class="form-control form-control-lg" />
+                <label class="form-label" for="form1">Discound code</label>
+              </div>
+              <button type="button" class="btn btn-outline-primary btn-m ms-3">Apply</button>
+            </div>
+          </div> -->
+  
+          <div class="card">
+            <div class="card-body" style="text-align: center;">
+              <button type="button" class="btn btn-primary btn-block btn-m" style="width: 180px;">Continue Shopping</button>
+              &nbsp;&nbsp;
+              <button type="button" class="btn btn-primary btn-block btn-m" style="width: 180px;">Proceed to Pay</button>
+            </div>
+          </div>
+  
         </div>
-        <div class="col-6">
-        <p>{{c.movie.title}}</p>
-        <p>{{c.movie.description}}</p>
-        </div>
-        <div class="col-3">
-        <p style="float:left">{{c.movie.price | currency}}</p>
-        <!-- <button (click)="decreaseQuantity(customer, c.movie.title)">-</button>{{c.quantity}}<button (click)="increaseQuantity(customer, c.movie.title)">+</button> -->
-        </div>
+      </div>
     </div>
-    </div>
-    <button routerLink="/checkout">Checkout</button>
+  </section>

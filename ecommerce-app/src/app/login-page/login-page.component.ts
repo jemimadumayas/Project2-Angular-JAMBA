@@ -11,7 +11,7 @@ export class LoginPageComponent implements OnInit {
 
   customer = new Customer();
   msg:string = "";
-
+  invalidLogin = false;
 
 constructor( private _router: Router, private _service: RegisterService ) { }
 
@@ -19,14 +19,16 @@ constructor( private _router: Router, private _service: RegisterService ) { }
   }
 
   loginCustomer() {
-    this._service.loginPage(this.customer).subscribe(
+    this._service.authenticateUser(this.customer).subscribe(
       (data: any) => {
-        console.log("response recieve"),
+        // console.log("response recieve"),
         this._router.navigate(['/all-movies'])
+        this.invalidLogin = false;
       },
       (error: any) => {
-        console.log("exception occured"),
+        // console.log("exception occured"),
         this.msg="Enter Valid Username and Password"
+        this.invalidLogin = true;
       }
     )
   }
