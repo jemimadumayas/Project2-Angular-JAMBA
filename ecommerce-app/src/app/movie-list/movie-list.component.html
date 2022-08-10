@@ -1,1 +1,81 @@
-<p>movie-list works!</p>
+<!-- <section id="product">
+  <br>
+    <h1>Movies</h1>
+    <div class="product-container" style="text-align: center;">  
+      <div class="product-slider owl-carousel owl-theme">
+          <div class="product-card item">
+              <div class="image">
+                <img src="../assets/images/The Little Mermaid 1.jpg"
+                  class="img-fluid rounded-3" alt="Little Mermaid" style="height: 200px; width: 150px">
+              </div>
+        
+              <div class="content">
+              <h3>The Little Mermaid</h3>
+              <div class="stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-alt"></i>
+              </div>
+            <div class="price">$9.99</div>
+          </div>
+      
+          <div class="info">
+            <h5>
+              Movie Info <br>
+              <small class="text-muted">A mermaid princess makes a Faustian bargain in an attempt to become human and win a prince's love.</small>
+            </h5>
+            <p></p>
+            <a href="#"><button class="btn btn-primary">add to cart</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="product-container" style="text-align: center;">  
+      <div class="product-slider owl-carousel owl-theme">
+          <div class="product-card item">
+              <div class="image">
+                <img src="../assets/images/Frozen 1.jpg"
+                  class="img-fluid rounded-3" alt="Little Mermaid" style="height: 200px; width: 150px">
+              </div>
+        
+              <div class="content">
+              <h3>Frozen</h3>
+              <div class="stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-alt"></i>
+              </div>
+            <div class="price">$9.99</div>
+          </div>
+      
+          <div class="info">
+            <h4>Movie Info</h4>
+            <p></p>
+            <a href="#"><button class="btn btn-primary">add to cart</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+</section> -->
+
+<div class="container">
+<div *ngFor="let movie of movies" class="row p-2 bg-white border rounded">
+    <div class="col-3">
+    <!-- <img src="{{movie.movieCoverLink}}" alt="movie cover for {{movie.title}}" routerLink="../movie/{{movie.title}}"> -->
+    <img src="../assets/images/The Little Mermaid 1.jpg" alt="movie cover for {{movie.title}}" routerLink="../movie/{{movie.title}}" style="width:150px; height: 200px;">
+    </div>
+    <div class="col-6">
+    <a routerLink="../movie/{{movie.title}}">{{movie.title}} </a> <p> ({{movie.releaseYear}}) &nbsp; <i class="fa fa-star">{{movie.rating | number:'1.1'}}</i></p>
+    <p>{{movie.description}}</p>
+    </div>
+    <div class="col-3">
+    <p style="float:center">{{movie.price | currency }}</p>
+    <button (click)="addToCart(movie.title)" class="btn btn-primary"> Add To Cart</button>
+    </div>
+</div>
+</div>
