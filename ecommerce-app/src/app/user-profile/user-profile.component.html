@@ -6,7 +6,8 @@
                 <div class="card-header" style="  background-color: #0b5394; color: white;">Profile Picture</div>
                 <div class="card-body text-center">
                     <!-- Profile picture image-->
-                    <img class="img-account-profile rounded-circle mb-1" [src]="customer.profilePicture" alt="user photo here">
+                    <img *ngIf="customer.profilePicture else anon" class="img-account-profile rounded-circle mb-1" [src]="customer.profilePicture" alt="user photo here">
+                    <ng-template #anon><img class="img-account-profile rounded-circle mb-1" src="https://tcf-jamba-images.s3.us-west-1.amazonaws.com/anon-user-icon.png"></ng-template>
                     <!-- Profile picture help block-->
                     <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
                     <!-- Profile picture upload button-->
