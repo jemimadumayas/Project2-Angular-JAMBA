@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GetService } from '../Get.service';
+import { GetService } from '../get.service';
+import { Customer } from '../objects/Customer';
 import { Movie } from '../objects/Movie';
 
 @Component({
