@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders, HttpRequest } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Movie } from './objects/Movie';
 import { Customer } from './objects/Customer';
 import { Cart } from './objects/Cart';
@@ -10,7 +10,12 @@ import { Cart } from './objects/Cart';
   providedIn: 'root'
 })
 export class GetService {
+
+
   baseurl = "http://localhost:8080/jamba";
+
+  public cartItemList:any =[];
+  public movieList=new BehaviorSubject<any>([]);
 
   constructor(private http:HttpClient) { }
 
@@ -20,12 +25,53 @@ export class GetService {
     })
     
   }
+
+  getMovies(){
+    return this.movieList.asObservable();
+  }
+
+  setMovie(movie:any){
+    this.cartItemList.push(...movie);
+    this.movieList.next(movie);
+  }
+
+  addMovieToCart(movie:any) {
+    this.cartItemList.push(movie);
+    this.movieList.next(this.cartItemList);
+    this.getSubTotal();
+    console.log(this.cartItemList)
+  }
+
+  getSubTotal() : number {
+    let subTotal = 0;
+    this.cartItemList.map((m:any)=>{
+      subTotal += m.total;
+    })
+    return subTotal;
+  }
+
   getSingleMovie(title:string):Observable<Movie>{
     return this.http.get<Movie>(this.baseurl+"/movie/"+title)
   }
 
+  removeFromCart(movie:any) {
+    this.cartItemList.map((m:any,index:any)=>{
+      if(m.id === movie.id){
+        this.cartItemList.splice(index,1);
+      }
+    })
+  }
+
+  clearCart() {
+    this.cartItemList=[]
+    this.movieList.next(this.cartItemList);
+  }
+
   getAllMovies():Observable<Movie>{
     return this.http.get<Movie>(this.baseurl+"/movie/all-movies")
+    .pipe(map((Response:any)=>{
+      return Response;
+    }))
   }
   
   getCustomer(username:string):Observable<Customer>{

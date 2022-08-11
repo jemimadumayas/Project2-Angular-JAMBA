@@ -1,97 +1,71 @@
-<section class="h-100">
-    <div class="container h-100 py-5">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-10">
-            <h1>Shopping Cart</h1> <br>
-          <div class="card rounded-3 mb-4">
-            <div class="card-body p-4">
-              <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-md-2 col-lg-2 col-xl-2">
-                  <img
-                    src=""
-                    class="img-fluid rounded-3" alt="Little Mermaid">
-                </div>
-                <div class="col-md-3 col-lg-3 col-xl-3">
-                  <p class="lead fw-normal mb-2">Little Mermaid</p>
-                </div>
-                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                  <button class="btn btn-link px-2"
-                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                    <i class="fa fa-minus"></i>
-                  </button>
-  
-                  <input id="form1" min="0" name="quantity" value="2" type="number"
-                    class="form-control form-control-sm" />
-  
-                  <button class="btn btn-link px-2"
-                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                    <i class="fa fa-plus"></i>
-                  </button>
-                </div>
-                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                  <h5 class="mb-0">$9.00</h5>
-                </div>
-                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                  <a href="#!" class="text-danger"><i class="fa fa-trash fa-lg"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+<ng-container *ngIf="movies != 0">
+  <div class="container">
+    &nbsp;
+    <div class="card-table">
+      <div class="cart-product" style="text-align: center;">
+        <div class="table table table-responsive">
+          <tbody>
+            <tr *ngFor="let item of movies">
+              <div class="card rounded-3 mb-4">
+                <div class="card-body p-4">
+                  <div class="row d-flex justify-content-between align-items-center">
+                    <div class="col-md-2 col-lg-2 col-xl-2">
+                      <img src="{{item.movieCoverLink}}" class="img-fluid rounded-3" alt="">
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-xl-3">
+                      <p class="lead fw-normal mb-2">{{item.title}}</p>
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                      <button class="btn btn-link px-2"
+                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                        <i class="fa fa-minus"></i>
+                      </button>
+                      <!-- use to check total quantity in cart -->
+                      <!-- <input id="form1" min="1" name="quantity" value="{{totalItemInCart}}" type="number" class="form-control form-control-sm" /> -->
+                      <input id="form1" min="1" name="quantity" value="{{1}}" type="number" class="form-control form-control-sm" />
 
-          <div class="card rounded-3 mb-4">
-            <div class="card-body p-4">
-              <div class="row d-flex justify-content-between align-items-center">
-                <div class="col-md-2 col-lg-2 col-xl-2">
-                  <img
-                    src=""
-                    class="img-fluid rounded-3" alt="Little Mermaid">
-                </div>
-                <div class="col-md-3 col-lg-3 col-xl-3">
-                  <p class="lead fw-normal mb-2">Little Mermaid</p>
-                </div>
-                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                  <button class="btn btn-link px-2"
-                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                    <i class="fa fa-minus"></i>
-                  </button>
-  
-                  <input id="form1" min="0" name="quantity" value="2" type="number"
-                    class="form-control form-control-sm" />
-  
-                  <button class="btn btn-link px-2"
-                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                    <i class="fa fa-plus"></i>
-                  </button>
-                </div>
-                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                  <h5 class="mb-0">$9.00</h5>
-                </div>
-                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                  <a href="#!" class="text-danger"><i class="fa fa-trash fa-lg"></i></a>
+                      <button class="btn btn-link px-2"
+                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                        <i class="fa fa-plus"></i>
+                      </button>
+                    </div>
+                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                      <h5 class="mb-0">${{item.price}}</h5>
+                    </div>
+                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                      <a (click)="deleteMovieInCart(item)" class="text-danger"><i class="fa fa-trash fa-lg"></i></a>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-  
-          <!-- <div class="card mb-4">
-            <div class="card-body p-4 d-flex flex-row">
-              <div class="form-outline flex-fill">
-                <input type="text" id="form1" class="form-control form-control-lg" />
-                <label class="form-label" for="form1">Discound code</label>
+            </tr>
+
+            <div class="card border-0">
+              <div class="card-body" style="text-align: left;">
+                <button type="button" class="btn btn-primary btn-block btn-m" style="width: 180px;">Continue
+                  Shopping</button>
+                &nbsp;
+                <button type="button" class="btn btn-primary btn-block btn-m" style="width: 180px;">Proceed to
+                  Pay</button>
               </div>
-              <button type="button" class="btn btn-outline-primary btn-m ms-3">Apply</button>
             </div>
-          </div> -->
-  
-          <div class="card">
-            <div class="card-body" style="text-align: center;">
-              <button type="button" class="btn btn-primary btn-block btn-m" style="width: 180px;">Continue Shopping</button>
-              &nbsp;&nbsp;
-              <button type="button" class="btn btn-primary btn-block btn-m" style="width: 180px;">Proceed to Pay</button>
-            </div>
-          </div>
-  
+          </tbody>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="movies.length == 0">
+  <div class="container">
+    <div class="empty">
+      <h3 class="card-title">Shopping Cart</h3>
+    </div>
+    <div class="center">
+      <img src="../assets/images/empty_cart.jpg" alt="">
+      <h4>Your cart is empty!</h4>
+      <h6>Add item to it now</h6>
+      <button class="btn btn-primary" [routerLink]="['/all-movies']">Shop Now</button>
+    </div>
+  </div>
+</ng-container>

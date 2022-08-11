@@ -7,5 +7,4 @@ export interface Cart{
     totalPrice:number;
     customer:Customer;
     transactions:Transaction[];
-
 }

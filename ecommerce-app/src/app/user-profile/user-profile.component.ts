@@ -36,4 +36,8 @@ export class UserProfileComponent implements OnInit {
   getBalance(){
     return sessionStorage.getItem("balance");
   }
+
+  getUsername() {
+    return sessionStorage.getItem("username");
+  }
 }

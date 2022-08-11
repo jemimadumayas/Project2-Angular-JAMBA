@@ -1,5 +1,4 @@
-
-<div class="container">
+<!-- <div class="container">
 <div *ngFor="let movie of movies" class="row p-2 bg-white border rounded">
     <div class="col-3">
     <img src="{{movie.movieCoverLink}}" alt="movie cover for {{movie.title}}" routerLink="../movie/{{movie.title}}">
@@ -13,4 +12,23 @@
     <button (click)="addToCart(movie.title)">Add To Cart</button>
     </div>
 </div>
+</div> -->
+
+<div class="container" >
+    <div class="row" >
+        <ng-container *ngFor="let item of movieList">
+            <div class="card col-md-3" style="text-align: center;">
+                <img src="{{item.movieCoverLink}}" class="rounded float-start" alt="">
+                <!-- <img src="{{item.movieCoverLink}}" class="rounded float-start" alt=""> -->
+                <p><i class="fa fa-star"> Rating: {{item.rating | number:'1.1'}}</i></p>
+                <h5 style="white-space:nowrap; overflow:hidden; max-width:100ch; text-overflow:ellipsis">{{item.title}}</h5>
+                <p style="white-space:nowrap; overflow:hidden; max-width:100ch; text-overflow:ellipsis">{{item.description}}</p>
+                <p style="float:left">Price: {{item.price | currency}}</p>
+                <button class="btn btn-primary" routerLink="../movie/{{item.title}}">Movie Details</button> 
+                <br>
+                <!-- <button class="btn btn-primary" (click)="addToCart(item.title)">Add to Cart</button> -->
+                <button class="btn btn-primary" (click)="addMovieToCart(item)">Add to Cart</button>
+            </div>
+        </ng-container>
+    </div>
 </div>

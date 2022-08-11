@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { GetService } from './Get.service';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +13,20 @@ export class AppComponent {
 
   title = "ecommerce-app"
 
-  
-  constructor(private modalService: NgbModal) {
+  public totalItemInCart: number = 0;
+
+  constructor(private modalService: NgbModal, private _service:GetService) {
   }
+
   public open(modal: any): void {
     this.modalService.open(modal);
+  }
+
+  ngOnInIt():void {
+    this._service.getMovies().subscribe(Response => {
+      this.totalItemInCart = Response.length;
+      console.log(this.totalItemInCart)
+    })
   }
 
   userIsLogedIn(): any{

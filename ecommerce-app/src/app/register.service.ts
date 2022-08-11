@@ -13,13 +13,14 @@ export class RegisterService {
   public authenticateUser(customer:Customer) : Observable<any>{
     return this._http.post<any>("http://localhost:8080/jamba/login",customer)
     .pipe(map(customer => {
-      sessionStorage.setItem("currentUser", JSON.stringify(customer));
+      sessionStorage.setItem("currentUser", customer);
       sessionStorage.setItem("firstname", customer.firstName);
       sessionStorage.setItem("lastname", customer.lastName);
       sessionStorage.setItem("address", customer.address);
       sessionStorage.setItem("email", customer.email);
       sessionStorage.setItem("phone", customer.phoneNumber);
       sessionStorage.setItem("balance", customer.accountBalance);
+      sessionStorage.setItem("username", customer.username);
       return customer;
     }))
   }
@@ -27,4 +28,5 @@ export class RegisterService {
   public registerPage(customer:Customer) : Observable<any>{
     return this._http.post<any>("http://localhost:8080/jamba/register",customer)
   }
+
 }
