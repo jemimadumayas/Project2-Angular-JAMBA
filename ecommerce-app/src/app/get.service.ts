@@ -43,6 +43,14 @@ export class GetService {
     let jsonObj=JSON.parse(sessionStorage.getItem("currentUser")!);
     this.customer=jsonObj as Customer;
     return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/removefromcart", this.customer)
+
+  getCustomersCart(customer:Customer):Observable<Cart>{
+    return this.http.put<Cart>(this.baseurl+"/cart", customer)
+  }
+  
+  addItemToCart(customer:Customer,title:string):Observable<Cart>{
+    return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/addtocart", customer)
+
   }
 
   updateCart(cart:Cart):Observable<Cart>{
