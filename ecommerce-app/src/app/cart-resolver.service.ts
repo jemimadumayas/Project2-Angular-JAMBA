@@ -10,7 +10,8 @@ import { CheckoutService } from './checkout.service';
 export class CartResolverService implements Resolve<Cart> {
 
   constructor(private _checkoutService:CheckoutService) { }
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Cart | Observable<Cart> | Promise<Cart> {
+  
+  resolve(): Observable<Cart> | Promise<Cart> {
     return this._checkoutService.getCustomersCart()
   }
 }

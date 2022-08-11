@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, firstValueFrom  } from 'rxjs';
 import { Cart } from './objects/Cart';
 import { Customer } from './objects/Customer';
 
@@ -23,7 +23,7 @@ export class CheckoutService {
     getCustomersCart():Observable<Cart>{
       let jsonObj=JSON.parse(sessionStorage.getItem("currentUser")!);
       this.customer=jsonObj as Customer;
-      return this.http.put<Cart>(this.baseurl+"/cart", this.customer)
+      return this.http.put<Cart>(this.baseurl+"/cart", this.customer);
     }
 
     checkoutCustomer(cart:Cart):Observable<Cart>{

@@ -18,7 +18,7 @@ private routeSub:any;
   constructor(private _GetService:GetService, private _checkoutService:CheckoutService, private router:Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(data => { this.cart = data})
+    this.cart=this.activatedRoute.snapshot.data['cart']
     console.log(this.cart);
     this.routeSub = this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
