@@ -19,9 +19,10 @@ export class MovieListComponent implements OnInit {
     this._GetService.getAllMovies().subscribe(data=>{ this.movies = data})
   }
 
-  addToCart(title:string/* ,customer:Customer */): void {
+  addToCart(title:string): void {
       this.name=title;
-  /*   this._getService.addItemToCart(customer, this.name) */
+
+    this._GetService.addItemToCart(this.name)
     console.log("added to cart "+this.name);
   }
 

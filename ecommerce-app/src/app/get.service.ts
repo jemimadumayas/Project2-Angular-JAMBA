@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders, HttpRequest } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Movie } from './objects/Movie';
 import { Customer } from './objects/Customer';
@@ -11,7 +11,8 @@ import { Cart } from './objects/Cart';
 })
 export class GetService {
   baseurl = "http://localhost:8080/jamba";
-
+  customer:Customer | any;
+  
   constructor(private http:HttpClient) { }
 
   httpOptions={
@@ -32,14 +33,27 @@ export class GetService {
     return this.http.get<Customer>(this.baseurl+"/username/"+username)
   }
 
+  addItemToCart(title:string):Observable<Cart>{
+    let jsonObj=JSON.parse(sessionStorage.getItem("currentUser")!);
+    this.customer=jsonObj as Customer;
+    return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/addtocart", this.customer)
+  }
+
+  removeItemFromCart(title:string):Observable<Cart>{
+    let jsonObj=JSON.parse(sessionStorage.getItem("currentUser")!);
+    this.customer=jsonObj as Customer;
+    return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/removefromcart", this.customer)
+
   getCustomersCart(customer:Customer):Observable<Cart>{
     return this.http.put<Cart>(this.baseurl+"/cart", customer)
   }
+  
   addItemToCart(customer:Customer,title:string):Observable<Cart>{
     return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/addtocart", customer)
+
   }
 
-  removeItemFromCart(customer:Customer,title:string):Observable<Cart>{
-    return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/removefromcart", customer)
+  updateCart(cart:Cart):Observable<Cart>{
+    return this.http.post<Cart>(this.baseurl+"/updateCart", cart)
   }
 }

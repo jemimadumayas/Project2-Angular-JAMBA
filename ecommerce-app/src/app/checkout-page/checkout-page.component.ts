@@ -16,7 +16,8 @@ cart:Cart | any;
   constructor(private _checkoutService:CheckoutService) {}
     
   ngOnInit(): void {
-    // this.cart = this._checkoutService.checkoutCustomer(this._checkoutService.getCustomersCart(customerPlaceholder));
+    this._checkoutService.getCustomersCart().subscribe(data=>{ this.cart = data});
+    this._checkoutService.checkoutCustomer(this.cart);
   }
 
 }
