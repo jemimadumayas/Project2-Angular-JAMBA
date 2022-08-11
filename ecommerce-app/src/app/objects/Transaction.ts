@@ -1,8 +1,8 @@
 import { Movie } from "./Movie";
-import { Cart } from "./Cart";
 
 export interface Transaction{
-    cart:Cart;
+    cartNumber:number;
+    movieId:number;
     movie:Movie;
     quanitity:number;
 }

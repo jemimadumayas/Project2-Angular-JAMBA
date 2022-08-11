@@ -3,7 +3,7 @@ import { CheckoutService } from '../checkout.service';
 import { GetService } from '../get.service';
 import { Cart } from '../objects/Cart';
 import { Transaction } from '../objects/Transaction';
-import { NavigationStart, Router } from '@angular/router';
+import { ActivatedRoute, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -14,10 +14,12 @@ export class CartComponent implements OnInit {
 cart:Cart | any;
 private routeSub:any; 
 
-  constructor(private _GetService:GetService, private _checkoutService:CheckoutService, private router:Router) { }
+
+  constructor(private _GetService:GetService, private _checkoutService:CheckoutService, private router:Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this._checkoutService.getCustomersCart().subscribe(data=>{ this.cart = data});
+    this.activatedRoute.data.subscribe(data => { this.cart = data})
+    console.log(this.cart);
     this.routeSub = this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         this._GetService.updateCart(this.cart);

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CartResolverService } from './cart-resolver.service';
 
 import { CartComponent } from './cart/cart.component';
 import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
@@ -12,12 +13,13 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {path:'movie/:title', component:MoviePageComponent},
-  {path:'cart', component:CartComponent, canActivate: [RegisterGuard]},
+  {path:'cart', component:CartComponent, canActivate: [RegisterGuard], resolve:{cart: CartResolverService}},
   {path:'my-profile', component:UserProfileComponent, canActivate: [RegisterGuard]},
   {path:'all-movies', component:MovieListComponent},
   {path:'login', component:LoginPageComponent},
   {path:'checkout', component:CheckoutPageComponent},
   {path:'signin', component:SignupPageComponent}
+  
 
 ];
 

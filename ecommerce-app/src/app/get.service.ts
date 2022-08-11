@@ -12,13 +12,15 @@ import { Cart } from './objects/Cart';
 export class GetService {
   baseurl = "http://localhost:8080/jamba";
   customer:Customer | any;
-  
+  cart:Cart | any;
+
   constructor(private http:HttpClient) { }
 
   httpOptions={
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+        })
     
   }
   getSingleMovie(title:string):Observable<Movie>{
@@ -33,16 +35,19 @@ export class GetService {
     return this.http.get<Customer>(this.baseurl+"/username/"+username)
   }
 
-  addItemToCart(title:string):Observable<Cart>{
+  addItemToCart(title:string): void{
     let jsonObj=JSON.parse(sessionStorage.getItem("currentUser")!);
     this.customer=jsonObj as Customer;
-    return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/addtocart", this.customer)
+    console.log(this.customer);
+    console.log(title);
+    this.http.post<Cart>(this.baseurl+"/movie/"+title+"/addtocart", this.customer).subscribe(data =>{ this.cart=data})
+    
   }
 
-  removeItemFromCart(title:string):Observable<Cart>{
+  removeItemFromCart(title:string): void{
     let jsonObj=JSON.parse(sessionStorage.getItem("currentUser")!);
     this.customer=jsonObj as Customer;
-    return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/removefromcart", this.customer)
+    this.http.post<Cart>(this.baseurl+"/movie/"+title+"/removefromcart", this.customer).subscribe(data =>{ this.cart=data})
   }
 
   updateCart(cart:Cart):Observable<Cart>{
