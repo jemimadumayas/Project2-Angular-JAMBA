@@ -21,7 +21,6 @@ export class MovieListComponent implements OnInit {
   addToCart(title:string): void {
     this.name=title;
     this._GetService.addItemToCart(this.name)
-    console.log("added to cart "+this.name);
   }
 
 }

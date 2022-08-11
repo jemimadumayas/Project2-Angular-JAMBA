@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:'my-profile', component:UserProfileComponent, canActivate: [RegisterGuard]},
   {path:'all-movies', component:MovieListComponent},
   {path:'login', component:LoginPageComponent},
-  {path:'checkout', component:CheckoutPageComponent},
+  {path:'checkout', component:CheckoutPageComponent, resolve:{cart: CartResolverService}},
   {path:'signin', component:SignupPageComponent}
   
 

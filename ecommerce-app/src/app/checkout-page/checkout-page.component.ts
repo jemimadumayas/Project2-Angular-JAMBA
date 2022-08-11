@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CheckoutService } from '../checkout.service';
 import { Cart } from '../objects/Cart';
-import { Movie } from '../objects/Movie';
 
 @Component({
   selector: 'app-checkout-page',
@@ -13,10 +13,10 @@ export class CheckoutPageComponent implements OnInit {
 cart:Cart | any;
 
 
-  constructor(private _checkoutService:CheckoutService) {}
+  constructor(private _checkoutService:CheckoutService, private activatedRoute: ActivatedRoute) {}
     
   ngOnInit(): void {
-    this._checkoutService.getCustomersCart().subscribe(data=>{ this.cart = data});
+    this.cart=this.activatedRoute.snapshot.data['cart']
     this._checkoutService.checkoutCustomer(this.cart);
   }
 
