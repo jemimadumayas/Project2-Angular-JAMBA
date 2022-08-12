@@ -1,5 +1,5 @@
 <!-- <div class="d-flex align-items-center">
-<div class="flex-shrink-0">
+        <div class="flex-shrink-0">
 <img src="{{movie.movieCoverLink}}" alt="movie cover for {{movie.title}}">
 </div>
 <div class="flex-grow-1 ms-3">
@@ -10,7 +10,7 @@
     <div>
         <p>{{movie.description}}</p>
         <p style="float:left">{{movie.price | currency}}</p> <br>
-        <button class="btn btn-primary" (click)="addToCart(movie.title, customer)">Add To Cart</button>
+        <button (click)="addToCart(movie.title)">Add To Cart</button>
     </div>
 </div>
 </div> -->

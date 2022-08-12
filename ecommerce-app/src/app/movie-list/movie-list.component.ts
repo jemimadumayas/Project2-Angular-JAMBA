@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { regExpEscape } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { __read } from 'tslib';
-import { GetService } from '../Get.service';
+import { GetService } from '../get.service';
 import { Customer } from '../objects/Customer';
 import { Movie } from '../objects/Movie';
 import { RegisterService } from '../register.service';
@@ -29,15 +29,9 @@ export class MovieListComponent implements OnInit {
     });
   }
 
-  addMovieToCart(movie:any) {
-    this._GetService.addMovieToCart(movie);
-  }
-
-
   addToCart(title:string): void {
     this.name=title;
-    this._GetService.addItemToCart(this.custumer ,this.name)
-    console.log("added to cart "+this.name +" " + this.custumer);
+    this._GetService.addItemToCart(this.name)
   }
 
 }
