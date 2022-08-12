@@ -30,7 +30,11 @@ export class GetService {
   }
   
   getCustomer(username:string):Observable<Customer>{
-    return this.http.get<Customer>(this.baseurl+"/username/"+username)
+    return this.http.get<Customer>(this.baseurl+"/customer/username/"+username)
+  }
+
+  updateCustomer(customer:Customer):Observable<Customer>{
+    return this.http.put<Customer>(this.baseurl+"/customer/"+customer.id, customer)
   }
 
   addItemToCart(title:string):Observable<Cart>{
@@ -43,15 +47,13 @@ export class GetService {
     let jsonObj=JSON.parse(sessionStorage.getItem("currentUser")!);
     this.customer=jsonObj as Customer;
     return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/removefromcart", this.customer)
+  }
 
   getCustomersCart(customer:Customer):Observable<Cart>{
     return this.http.put<Cart>(this.baseurl+"/cart", customer)
   }
   
-  addItemToCart(customer:Customer,title:string):Observable<Cart>{
-    return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/addtocart", customer)
-
-  }
+ 
 
   updateCart(cart:Cart):Observable<Cart>{
     return this.http.post<Cart>(this.baseurl+"/updateCart", cart)
