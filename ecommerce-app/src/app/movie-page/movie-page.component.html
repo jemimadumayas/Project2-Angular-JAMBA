@@ -33,21 +33,96 @@
 			<div class="container-fliud">
 				<div class="wrapper row">
 					<div class="preview col-md-5">
-						<div class="preview-pic tab-content">
-						  <div class="tab-pane active" id="pic-1"><img src="{{movie.movieCoverLink}}" /></div>
+						<!-- <video *ngIf="movie.id == 56" class="video-fluid z-depth-1" autoplay loop controls muted>
+							<source src="https://mdbootstrap.com/img/video/Sail-Away.mp4" type="video/mp4" />
+						</video> -->
+						
+						<!-- <div class="preview-pic tab-content">
+						  <div class="tab-pane active" id="pic-1"><img src="{{movie.movieCoverLink}}" /></div>					
 						  <div class="tab-pane" id="pic-2"><img src="{{movie.movieCoverLink}}"/></div>
 						  <div class="tab-pane" id="pic-3"><img src="{{movie.movieCoverLink}}" /></div>
 						  <div class="tab-pane" id="pic-4"><img src="{{movie.movieCoverLink}}" /></div>
 						  <div class="tab-pane" id="pic-5"><img src="{{movie.movieCoverLink}}" /></div>
-						</div>
-						<ul class="preview-thumbnail nav nav-tabs">
-						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="{{movie.movieCoverLink}}" /></a></li>
-						  <li><a data-target="#pic-2" data-toggle="tab"><img src="{{movie.movieCoverLink}}" /></a></li>
-						  <li><a data-target="#pic-3" data-toggle="tab"><img src="{{movie.movieCoverLink}}" /></a></li>
-						  <li><a data-target="#pic-4" data-toggle="tab"><img src="{{movie.movieCoverLink}}" /></a></li>
-						  <li><a data-target="#pic-5" data-toggle="tab"><img src="{{movie.movieCoverLink}}" /></a></li>
+						</div> -->
+
+						<video *ngIf="movie.id == 57" class="video-fluid z-depth-1" autoplay loop controls muted>
+							<source src="../assets/videos/ring-trailer.mp4" type="video/mp4" />
+						</video>
+						<ul class="preview-thumbnail nav nav-tabs" *ngIf="movie.id == 57">
+							<li><a *ngIf="movie.id == 57"><img src="{{movie.movieCoverLink}}" /></a></li>
+							<li><a *ngIf="movie.id == 57"><img src="{{movie.movieCoverLink}}" /></a></li>
+							<li><a *ngIf="movie.id == 57"><img src="{{movie.movieCoverLink}}"/></a></li>
+							<li><a *ngIf="movie.id == 57"><img src="{{movie.movieCoverLink}}"/></a></li>
+							<li><a *ngIf="movie.id == 57"><img src="{{movie.movieCoverLink}}"/></a></li>
+						</ul>
+
+						<video *ngIf="movie.id == 58" class="video-fluid z-depth-1" autoplay loop controls muted>
+							<source src="../assets/videos/tower-trailer.mp4" type="video/mp4" />
+						</video>
+						<ul class="preview-thumbnail nav nav-tabs" *ngIf="movie.id == 58">
+							<li><a *ngIf="movie.id == 58"><img src="{{movie.movieCoverLink}}" /></a></li>
+							<li><a *ngIf="movie.id == 58"><img src="{{movie.movieCoverLink}}" /></a></li>
+							<li><a *ngIf="movie.id == 58"><img src="{{movie.movieCoverLink}}"/></a></li>
+							<li><a *ngIf="movie.id == 58"><img src="{{movie.movieCoverLink}}"/></a></li>
+							<li><a *ngIf="movie.id == 58"><img src="{{movie.movieCoverLink}}"/></a></li>
+						</ul>
+
+						<video *ngIf="movie.id == 59" class="video-fluid z-depth-1" autoplay loop controls muted>
+							<source src="../assets/videos/king-trailer.mp4" type="video/mp4" />
+						</video>
+
+						<ul class="preview-thumbnail nav nav-tabs" *ngIf="movie.id == 59">
+							<li><a *ngIf="movie.id == 59"><img src="{{movie.movieCoverLink}}" /></a></li>
+							<li><a *ngIf="movie.id == 59"><img src="{{movie.movieCoverLink}}" /></a></li>
+							<li><a *ngIf="movie.id == 59"><img src="{{movie.movieCoverLink}}"/></a></li>
+							<li><a *ngIf="movie.id == 59"><img src="{{movie.movieCoverLink}}"/></a></li>
+							<li><a *ngIf="movie.id == 59"><img src="{{movie.movieCoverLink}}"/></a></li>
+						</ul>
+
+						<video *ngIf="movie.id == 56" class="video-fluid z-depth-1" autoplay loop controls muted>
+							<source src="../assets/videos/mermaid-trailer.mp4" type="video/mp4" />
+						</video>
+						<ul class="preview-thumbnail nav nav-tabs" *ngIf="movie.id == 56">
+							<li><a *ngIf="movie.id == 56"><img src="{{movie.movieCoverLink}}" /></a></li>
+							<li><a *ngIf="movie.id == 56"><img src="../assets/images/The Little Mermaid 1.jpg" /></a></li>
+							<li><a *ngIf="movie.id == 56"><img src="../assets/images/The Little Mermaid 2.jpg"/></a></li>
+							<li><a *ngIf="movie.id == 56"><img src="../assets/images/The Little Mermaid 3.png"/></a></li>
+							<li><a *ngIf="movie.id == 56"><img src="../assets/images/The Little Mermaid 4.jpeg"/></a></li>
 						</ul>
 						
+						<video *ngIf="movie.id == 66" class="video-fluid z-depth-1" autoplay loop controls muted>
+							<source src="../assets/videos/frozen-trailer.mp4" type="video/mp4" />
+						</video>
+						<ul class="preview-thumbnail nav nav-tabs">
+							<li><a *ngIf="movie.id == 66"><img src="{{movie.movieCoverLink}}" /></a></li>
+							<li><a *ngIf="movie.id == 66"><img src="../assets/images/Frozen 1.jpg" /></a></li>
+							<li><a *ngIf="movie.id == 66"><img src="../assets/images/Frozen 2.jpg"/></a></li>
+							<li><a *ngIf="movie.id == 66"><img src="../assets/images/Frozen 3.jpg"/></a></li>
+							<li><a *ngIf="movie.id == 66"><img src="../assets/images/Frozen 4.jpeg"/></a></li>
+						</ul>
+
+						<video *ngIf="movie.id == 67" class="video-fluid z-depth-1" autoplay loop controls muted>
+							<source src="../assets/videos/jurrasic-trailer.mp4" type="video/mp4" />
+						</video>
+						<ul class="preview-thumbnail nav nav-tabs" *ngIf="movie.id == 67">
+							<li><a *ngIf="movie.id == 67"><img src="{{movie.movieCoverLink}}" /></a></li>
+							<li><a *ngIf="movie.id == 67"><img src="../assets/images/Jurassic World 1.jpeg" /></a></li>
+							<li><a *ngIf="movie.id == 67"><img src="../assets/images/Jurassic World 2.jpg"/></a></li>
+							<li><a *ngIf="movie.id == 67"><img src="../assets/images/Jurassic World 3.jpg"/></a></li>
+							<li><a *ngIf="movie.id == 67"><img src="../assets/images/Jurassic World 4.jpg"/></a></li>
+						</ul>
+
+						<video *ngIf="movie.id == 68" class="video-fluid z-depth-1" autoplay loop controls muted>
+							<source src="../assets/videos/independence-trailer.mp4" type="video/mp4" />
+						</video>
+						<ul class="preview-thumbnail nav nav-tabs" *ngIf="movie.id == 68">
+							<li><a *ngIf="movie.id == 68"><img src="{{movie.movieCoverLink}}" /></a></li>
+							<li><a *ngIf="movie.id == 68"><img src="../assets/images/Independence Day 1.jpg" /></a></li>
+							<li><a *ngIf="movie.id == 68"><img src="../assets/images/Independence Day 2.jpg"/></a></li>
+							<li><a *ngIf="movie.id == 68"><img src="../assets/images/Independence Day 3.jpg"/></a></li>
+							<li><a *ngIf="movie.id == 68"><img src="../assets/images/Independence Day 4.jpeg"/></a></li>
+						</ul>
+
 					</div>
 					<div class="details col-md-6">
 						<h1 class="product-title">{{movie.title}}</h1>
@@ -55,8 +130,8 @@
 							<p><span class="fa fa-star checked"></span> Rating: {{movie.rating | number:'1.1'}} </p>	
 							</div>
 						<p class="product-description">{{movie.description}}</p>
-                        <h4 class="price">year:</h4><p class="product-description">{{movie.releaseYear}}</p>
-                        <h4 class="price">genre:</h4><p class="product-description">{{movie.genre}}</p>
+                        <h4 class="price">year</h4><p class="product-description">{{movie.releaseYear}}</p>
+                        <h4 class="price">genre</h4><p class="product-description">{{movie.genre}}</p>
 						<h4 class="price">price: <span>${{movie.price}}</span></h4>
 						<div class="action">
 							<button class="btn btn-primary" type="button">Add to Card</button>

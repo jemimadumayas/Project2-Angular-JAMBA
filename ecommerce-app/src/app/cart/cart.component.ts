@@ -31,10 +31,14 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
       // this.cart = this._checkoutService.getCustomersCart(customerPlaceholder);
-    this._GetService.getMovies().subscribe(Response => { 
+      this._GetService.getMovies().subscribe(Response => { 
       this.movies = Response;
       this.subTotal = this._GetService.getSubTotal();
     })
+  }
+
+  totalPayment() {
+    return this.subTotal + (this.subTotal * 0.095);
   }
 
   increaseQuantity(customer:Customer, title:string): Observable<Cart>{

@@ -39,14 +39,19 @@
                 </div>
               </div>
             </tr>
-
             <div class="card border-0">
               <div class="card-body" style="text-align: left;">
-                <button type="button" class="btn btn-primary btn-block btn-m" style="width: 180px;">Continue
+                <h5>Subtotal: <input type="text" style="text-align: left; width: 120px; border: none;" value="{{subTotal|currency}}"><br></h5>
+                <h5>Est. Tax: <input type="text" style="text-align: left; width: 120px; border: none;" value="9.5 %"><br></h5>
+                <h5>Total   : <input type="text" style="text-align: left; width: 120px; border: none;" value="{{totalPayment()|currency}}"></h5>
+              </div>
+              <div class="card-body" style="text-align: left">
+                <button type="button" [routerLink]="['/all-movies']" class="btn btn-primary btn-block btn-m" style="width: 180px;">Continue
                   Shopping</button>
-                &nbsp;
-                <button type="button" class="btn btn-primary btn-block btn-m" style="width: 180px;">Proceed to
+                  &nbsp;
+                <button type="button" routerLink="/checkout" class="btn btn-primary btn-block btn-m" style="width: 180px;">Proceed to
                   Pay</button>
+                  &nbsp;                 
               </div>
             </div>
           </tbody>

@@ -45,7 +45,7 @@ export class GetService {
   getSubTotal() : number {
     let subTotal = 0;
     this.cartItemList.map((m:any)=>{
-      subTotal += m.total;
+      subTotal += m.price;
     })
     return subTotal;
   }

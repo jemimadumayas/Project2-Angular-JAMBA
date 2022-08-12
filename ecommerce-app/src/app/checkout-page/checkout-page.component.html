@@ -1,4 +1,117 @@
-<h4>Thank you for shopping with JAMBA</h4>
+
+<div class="receipt-content">
+    <div class="container bootstrap snippets bootdey">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="invoice-wrapper">
+					<div class="intro">
+						Hi <strong>"Name Here"</strong>, 
+						<br>
+						This is the receipt for a payment of <strong>$"Subtotal Here"</strong> (USD) for your works
+					</div>
+
+					<div class="payment-info">
+						<div class="row">
+							<div class="col-sm-6">
+								<span>Transaction No.</span>
+								<strong>434334343</strong>
+							</div>
+							<div class="col-sm-6 text-right">
+								<span>Transaction Date</span>
+								<strong>Jul 09, 2014 - 12:20 pm</strong>
+							</div>
+						</div>
+					</div>
+
+					<div class="payment-details">
+						<div class="row">
+							<div class="col-sm-6">
+								<span>Billed To: </span>
+								<strong>
+									Full Name
+								</strong>
+								<p>
+									1234 Street Ave <br>
+									Los Angeles, CA  <br>
+									11111 <br>
+									USA <br>
+									<a href="#">
+										name@customer.com
+									</a>
+								</p>
+							</div>
+							<div class="col-sm-6 text-right">
+								<span>Company Info: </span>
+								<strong>
+									JAMBA Inc.
+								</strong>
+								<p>
+									4321 Lane Drive <br>
+									San Francisco, CA <br>
+									99999 <br>
+									USA <br>
+									<a href="#">
+										contactus@jamba.com
+									</a>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="line-items">
+						<div class="headers clearfix">
+							<div class="row">
+								<div class="col-xs-4">Description</div>
+								<div class="col-xs-3">Quantity</div>
+								<div class="col-xs-5 text-right">Amount</div>
+							</div>
+						</div>
+						<div class="items">
+							<div class="row item">
+								<div class="col-xs-4 desc">
+									Item: Movie Title
+								</div>
+								<div class="col-xs-3 qty">
+									Qty: 3
+								</div>
+								<div class="col-xs-5 amount text-right">
+									Price: $10.00
+								</div>
+							</div>
+						</div>
+						<div class="total text-right">
+
+							<div class="field">
+								Subtotal <span>$30.00</span>
+							</div>
+							<div class="field">
+								Shipping <span>$0.00</span>
+							</div>
+							<div class="field">
+								Est. Tax <span>9.5%</span>
+							</div>
+							<div class="field grand-total">
+								Total <span>$32.85</span>
+							</div>
+						</div>
+
+						<div class="print">
+							<a href="#">
+								<i class="fa fa-print"></i>
+								Print this receipt
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="footer">
+					Copyright © 2014. JAMBA
+				</div>
+			</div>
+		</div>
+	</div>
+</div>                    
+
 <ul>
     <li *ngFor="let c of cart.transactions">{{c.movie.title}} &nbsp; {{c.movie.price | currency}}</li>
     <li>and your total is: {{cart.totalPrice}}</li>

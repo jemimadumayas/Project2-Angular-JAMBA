@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CheckoutService } from '../checkout.service';
 import { Cart } from '../objects/Cart';
+import { Customer } from '../objects/Customer';
 import { Movie } from '../objects/Movie';
 
 @Component({
@@ -10,13 +11,15 @@ import { Movie } from '../objects/Movie';
 })
 export class CheckoutPageComponent implements OnInit {
 
-cart:Cart | any;
+  cart:Cart | any;
 
-
+  
   constructor(private _checkoutService:CheckoutService) {}
     
   ngOnInit(): void {
-    // this.cart = this._checkoutService.checkoutCustomer(this._checkoutService.getCustomersCart(customerPlaceholder));
+    // this.cart = this._checkoutService.checkoutCustomer(this._checkoutService.getCustomersCart());
   }
 
 }
+
+
