@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CheckoutService } from '../checkout.service';
 import { Cart } from '../objects/Cart';
 import { Customer } from '../objects/Customer';
@@ -13,11 +14,11 @@ export class CheckoutPageComponent implements OnInit {
 
   cart:Cart | any;
 
-  
-  constructor(private _checkoutService:CheckoutService) {}
+  constructor(private _checkoutService:CheckoutService, private activatedRoute: ActivatedRoute) {}
     
   ngOnInit(): void {
-    // this.cart = this._checkoutService.checkoutCustomer(this._checkoutService.getCustomersCart());
+    this.cart=this.activatedRoute.snapshot.data['cart']
+    this._checkoutService.checkoutCustomer(this.cart);
   }
 
 }

@@ -4,6 +4,7 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Movie } from './objects/Movie';
 import { Customer } from './objects/Customer';
 import { Cart } from './objects/Cart';
+import { CheckoutService } from './checkout.service';
 
 
 @Injectable({
@@ -13,11 +14,12 @@ export class GetService {
 
 
   baseurl = "http://localhost:8080/jamba";
-
+  customer:Customer | any;
+  cart:Cart | any;
   public cartItemList:any =[];
   public movieList=new BehaviorSubject<any>([]);
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private _checkoutService: CheckoutService) { }
 
   httpOptions={
     headers: new HttpHeaders({
@@ -78,11 +80,25 @@ export class GetService {
     return this.http.get<Customer>(this.baseurl+"/username/"+username)
   }
 
-  addItemToCart(customer:Customer,title:string):Observable<Cart>{
-    return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/addtocart", customer)
+  addItemToCart(title:string): void{
+    let jsonObj=JSON.parse(sessionStorage.getItem("currentUser")!);
+    this.customer=jsonObj as Customer;
+    this.http.post<Cart>(this.baseurl+"/movie/"+title+"/addtocart", this.customer).subscribe(data =>{ this.cart=data})
   }
 
-  removeItemFromCart(customer:Customer,title:string):Observable<Cart>{
-    return this.http.post<Cart>(this.baseurl+"/movie/"+title+"/removefromcart", customer)
+  removeItemFromCart(title:string): void{
+    let jsonObj=JSON.parse(sessionStorage.getItem("currentUser")!);
+    this.customer=jsonObj as Customer;
+    this.http.post<Cart>(this.baseurl+"/movie/"+title+"/removefromcart", this.customer).subscribe(data =>{ this.cart=data})
+  }
+
+  updateCart(cart:Cart): void{
+    console.log("service")
+    console.log(cart);
+    this.http.post<Cart>(this.baseurl+"/updateCart", cart).subscribe(data =>{ this.cart=data})
+  }
+
+  resolve(): Observable<Cart> | Promise<Cart> {
+    return this._checkoutService.getCustomersCart()
   }
 }

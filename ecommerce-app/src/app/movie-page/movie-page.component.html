@@ -134,7 +134,7 @@
                         <h4 class="price">genre</h4><p class="product-description">{{movie.genre}}</p>
 						<h4 class="price">price: <span>${{movie.price}}</span></h4>
 						<div class="action">
-							<button class="btn btn-primary" type="button">Add to Card</button>
+							<button class="btn btn-primary" (click)="addToCart(movie.title)" type="button">Add to Cart</button>
 						</div>
 					</div>
 				</div>

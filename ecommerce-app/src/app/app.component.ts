@@ -22,6 +22,7 @@ export class AppComponent {
     this.modalService.open(modal);
   }
 
+  // add qty on shopping bag subscript
   ngOnInIt():void {
     this._service.getMovies().subscribe(Response => {
       this.totalItemInCart = Response.length;

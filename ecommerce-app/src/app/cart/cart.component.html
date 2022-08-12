@@ -5,35 +5,47 @@
       <div class="cart-product" style="text-align: center;">
         <div class="table table table-responsive">
           <tbody>
-            <tr *ngFor="let item of movies">
+            <tr *ngFor="let item of cart.transactions">
               <div class="card rounded-3 mb-4">
                 <div class="card-body p-4">
                   <div class="row d-flex justify-content-between align-items-center">
                     <div class="col-md-2 col-lg-2 col-xl-2">
-                      <img src="{{item.movieCoverLink}}" class="img-fluid rounded-3" alt="">
+                      <img src="{{item.movie.movieCoverLink}}" class="img-fluid rounded-3" alt="">
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-3">
-                      <p class="lead fw-normal mb-2">{{item.title}}</p>
+                      <p class="lead fw-normal mb-2">{{item.movie.title}}</p>
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                      <button class="btn btn-link px-2"
-                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                      <button class="btn btn-link px-2" (click)="changeQuant(-1, item.movie.title)">
                         <i class="fa fa-minus"></i>
                       </button>
+                      <!-- <button class="btn btn-link px-2"
+                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                        <i class="fa fa-minus"></i>
+                      </button> -->
                       <!-- use to check total quantity in cart -->
                       <!-- <input id="form1" min="1" name="quantity" value="{{totalItemInCart}}" type="number" class="form-control form-control-sm" /> -->
-                      <input id="form1" min="1" name="quantity" value="{{1}}" type="number" class="form-control form-control-sm" />
-
-                      <button class="btn btn-link px-2"
+                      <!-- <input id="form1" min="1" name="quantity" value="{{1}}" type="number" class="form-control form-control-sm" /> -->
+                      <input id="form1" min="0" name="quantity" [(ngModel)]="item.quantity" type="number"
+                        class="form-control form-control-sm" />
+                      <!-- <button class="btn btn-link px-2"
                         onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                        <i class="fa fa-plus"></i>
+                      </button> -->
+                      <button class="btn btn-link px-2" (click)="changeQuant(1, item.movie.title)">
                         <i class="fa fa-plus"></i>
                       </button>
                     </div>
+
                     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                      <h5 class="mb-0">${{item.price}}</h5>
+                      <h5 class="mb-0">{{item.movie.price*item.movie.quantity | currency}}</h5>
                     </div>
-                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                    <!-- <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                       <a (click)="deleteMovieInCart(item)" class="text-danger"><i class="fa fa-trash fa-lg"></i></a>
+                    </div> -->
+                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                      <a (click)="removeItem(item.movie.title)" class="text-danger"><i
+                          class="fa fa-trash fa-lg"></i></a>
                     </div>
                   </div>
                 </div>
@@ -41,17 +53,25 @@
             </tr>
             <div class="card border-0">
               <div class="card-body" style="text-align: left;">
-                <h5>Subtotal: <input type="text" style="text-align: left; width: 120px; border: none;" value="{{subTotal|currency}}"><br></h5>
-                <h5>Est. Tax: <input type="text" style="text-align: left; width: 120px; border: none;" value="9.5 %"><br></h5>
-                <h5>Total   : <input type="text" style="text-align: left; width: 120px; border: none;" value="{{totalPayment()|currency}}"></h5>
+                <h5>Subtotal: <input type="text" style="text-align: left; width: 120px; border: none;"
+                    value="{{subTotal|currency}}"><br></h5>
+                <h5>Est. Tax: <input type="text" style="text-align: left; width: 120px; border: none;"
+                    value="9.5 %"><br></h5>
+                <h5>Total : <input type="text" style="text-align: left; width: 120px; border: none;"
+                    value="{{totalPayment()|currency}}"></h5>
               </div>
               <div class="card-body" style="text-align: left">
-                <button type="button" [routerLink]="['/all-movies']" class="btn btn-primary btn-block btn-m" style="width: 180px;">Continue
+                <button type="button" routerLink="../all-movies" class="btn btn-primary btn-block btn-m"
+                  style="width: 180px;">Continue
                   Shopping</button>
-                  &nbsp;
-                <button type="button" routerLink="/checkout" class="btn btn-primary btn-block btn-m" style="width: 180px;">Proceed to
+                &nbsp;
+                <button type="button" class="btn btn-primary btn-block btn-m" style="width: 180px;"
+                  (click)="updateCart()">Save changes</button>
+                &nbsp;
+                <button type="button" routerLink="../checkout" class="btn btn-primary btn-block btn-m"
+                  style="width: 180px;">Proceed to
                   Pay</button>
-                  &nbsp;                 
+                &nbsp;
               </div>
             </div>
           </tbody>

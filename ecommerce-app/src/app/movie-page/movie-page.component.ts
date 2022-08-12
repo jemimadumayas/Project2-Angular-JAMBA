@@ -28,10 +28,9 @@ export class MoviePageComponent implements OnInit {
     this._GetService.getSingleMovie(this.name).subscribe(data=>{ this.movie = data})
   }
 
-  addToCart(title:string ,customer:Customer ): void {
+  addToCart(title:string): void {
     this.name=title;
-    this._GetService.addItemToCart(customer, this.name)
-  console.log("added to cart "+this.name);
+    this._GetService.addItemToCart(this.name)
 }
 
   increaseItem() {

@@ -15,6 +15,7 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { HeaderComponent } from './header/header.component';
 
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     NgbModule,
     AppRoutingModule,

@@ -22,11 +22,11 @@ export class MovieListComponent implements OnInit {
   constructor(private _GetService:GetService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    //this._GetService.getAllMovies().subscribe(data=>{ this.movies = data})
-    this._GetService.getAllMovies().subscribe(Response => { this.movieList = Response})
-    this.movieList.array.forEach((m:any) => {
-      Object.assign(m,{quantity:1,total:m.price});
-    });
+    this._GetService.getAllMovies().subscribe(data=>{ this.movies = data})
+    // this._GetService.getAllMovies().subscribe(Response => { this.movieList = Response})
+    // this.movieList.array.forEach((m:any) => {
+    //   Object.assign(m,{quantity:1,total:m.price});
+    // });
   }
 
   addMovieToCart(movie:any) {
@@ -36,8 +36,7 @@ export class MovieListComponent implements OnInit {
 
   addToCart(title:string): void {
     this.name=title;
-    this._GetService.addItemToCart(this.custumer ,this.name)
-    console.log("added to cart "+this.name +" " + this.custumer);
+    this._GetService.addItemToCart(this.name)
   }
 
 }
