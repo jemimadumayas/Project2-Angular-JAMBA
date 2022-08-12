@@ -11,6 +11,7 @@ import { RegisterGuard } from './register.guard';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
+
 const routes: Routes = [
   {path:'movie/:title', component:MoviePageComponent},
   {path:'cart', component:CartComponent, canActivate: [RegisterGuard], resolve:{cart: CartResolverService}},

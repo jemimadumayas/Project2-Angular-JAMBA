@@ -33,7 +33,11 @@ export class GetService {
   }
   
   getCustomer(username:string):Observable<Customer>{
-    return this.http.get<Customer>(this.baseurl+"/username/"+username)
+    return this.http.get<Customer>(this.baseurl+"/customer/username/"+username)
+  }
+
+  updateCustomer(customer:Customer):Observable<Customer>{
+    return this.http.put<Customer>(this.baseurl+"/customer/"+customer.id, customer)
   }
 
   addItemToCart(title:string): void{
@@ -48,6 +52,11 @@ export class GetService {
     this.http.post<Cart>(this.baseurl+"/movie/"+title+"/removefromcart", this.customer).subscribe(data =>{ this.cart=data})
   }
 
+ 
+
+  getCustomersCart(customer:Customer):Observable<Cart>{
+    return this.http.put<Cart>(this.baseurl+"/cart", customer)
+  }
   updateCart(cart:Cart): void{
     console.log("service")
     console.log(cart);
